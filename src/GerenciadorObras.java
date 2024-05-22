@@ -7,17 +7,15 @@ import java.util.ArrayList;
 
 public abstract class GerenciadorObras {
     
-    private static final String ARQUIVO = "Obras.txt";
+    private static final String ARQUIVO = "obras.txt";
 
     public static void salvarObra(Obra obra) throws IOException {
 
         try (FileWriter fw = new FileWriter(ARQUIVO, true);
              BufferedWriter bw = new BufferedWriter(fw)) {
 
-            bw.write(obra + "\n");
-
+            bw.write(obra.toString() + "\n");
         }
-
     }
 
     public static ArrayList<Obra> listarObras() throws IOException, Exception {
@@ -25,22 +23,25 @@ public abstract class GerenciadorObras {
         ArrayList<Obra> listaObras = new ArrayList<>();
 
         try (FileReader fr = new FileReader(ARQUIVO);
-             BufferedReader br = new BufferedReader(fr)) {
+            BufferedReader br = new BufferedReader(fr)) {
 
                 String linha;
+
                 while ((linha = br.readLine()) != null) {
-                    
-                    Obra obra = Obra.fromString(linha);
+
+                    String[] dados = linha.split(", ");
+
+                    Obra obra = new Obra(dados[0], dados[1], dados[2], dados[3], Integer.parseInt(dados[4]));
+
                     listaObras.add(obra);
                 }
-        } 
+            }
 
-        if (listaObras.isEmpty()) {
-            throw new Exception("\nNão há obras cadastrados");
-        }
+            if (listaObras.isEmpty()) {
+                throw new Exception("\nNão há obras cadastrados");
+            }
 
-        return listaObras;
-
+            return listaObras;
     }
 
     public static Obra buscarObra(String titulo) throws Exception {

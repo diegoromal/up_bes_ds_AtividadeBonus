@@ -14,9 +14,9 @@ public class Sistema{
 
     }
     
-    private static void verificarOpcao(int op) {
+    private static void verificarOpcao(int opcao) {
 
-        switch (op) {
+        switch (opcao) {
             case 1:
                 salvarObra();
                 break;
@@ -38,7 +38,7 @@ public class Sistema{
                 break;
         
             default:
-                System.out.println("\nOpção inválida Digite novamente:");
+                System.out.println("\nOpção inválida Digite novamente: ");
                 break;
         }
 
@@ -46,7 +46,7 @@ public class Sistema{
 
     private static void salvarObra() {
 
-        System.out.println("\nNova Obra:");
+        System.out.println("\nAdicionar Obra:");
         
         System.out.print("Informe o título: ");
         String titulo = Console.lerString();
@@ -66,15 +66,10 @@ public class Sistema{
         Obra obra = new Obra(titulo, artista, tipoObra, local, ano);
 
         try {
-
             GerenciadorObras.salvarObra(obra);
-
         } catch (IOException e) {
-
             System.out.println(e.getMessage());
         }
-
-
     }
 
     private static void buscarObra() {

@@ -1,13 +1,14 @@
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Sistema{
 
     private static void exibirMenu() {
 
         System.out.println("\nMuseu XPTO");
-        System.out.println("[1] - Cadastrar obras");
-        System.out.println("[2] - Buscar obra");
-        System.out.println("[3] - Listar todas as obras");
+        System.out.println("[1] - Cadastrar obra");
+        System.out.println("[2] - Listar todas as obras");
+        System.out.println("[3] - Buscar obra");
         System.out.println("[4] - Apagar as obras");
         System.out.println("[0] - Sair");
         System.out.print("Sua opção: ");
@@ -22,11 +23,11 @@ public class Sistema{
                 break;
 
             case 2:
-                buscarObra();
+                listarObras();
                 break;
             
             case 3:
-                listarObras();
+                buscarObra();
                 break;
 
             case 4:
@@ -71,6 +72,20 @@ public class Sistema{
             System.out.println(e.getMessage());
         }
     }
+    
+    private static void listarObras() {
+
+        System.out.println("\nObras cadastradas:");
+
+        try {
+            for (Obra tempObra : GerenciadorObras.listarObras()) {
+                System.out.println(tempObra);
+            }
+        
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
     private static void buscarObra() {
 
@@ -79,35 +94,14 @@ public class Sistema{
         String titulo = Console.lerString();
 
         try {
-
             Obra obra = GerenciadorObras.buscarObra(titulo);
             System.out.println("\nObra encontrada: " + obra);
-
+            
         } catch (Exception e) {
-
             System.out.println(e.getMessage());
         }
-
     }
-    
-    private static void listarObras() {
-
-        System.out.println("\nObras Cadastrados:");
-
-        try {
-
-            for (Obra tempObra : GerenciadorObras.listarObras())
-            {
-                System.out.println(tempObra);
-            }
         
-        } catch (Exception e) {
-
-            System.out.println(e.getMessage());
-        }
-
-    }
-
     private static void apagarObra() {
 
         System.out.println("\nApagar Obra");

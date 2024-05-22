@@ -56,6 +56,18 @@ public class Obra {
     
     @Override
     public String toString() {
-        return titulo + ", " + artista + ", " + tipoObra + ", " + local + ", " + ano + "\n";
+        return titulo + ", " + artista + ", " + tipoObra + ", " + local + ", " + ano;
+    }
+
+    public static String retornarDados(String linha) {
+        String[] dados = linha.split(", ");
+
+        String txt = "Título da Obra: " + dados[0] +
+                     "Artista: " + dados[1] +
+                     "Tipo de Obra: " + dados[2] +
+                     "Local no Museu: " + dados[3] +
+                     "Ano: " + dados[4] + "\n";
+        
+        return txt;
     }
 }

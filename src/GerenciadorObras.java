@@ -26,22 +26,20 @@ public abstract class GerenciadorObras {
             BufferedReader br = new BufferedReader(fr)) {
 
                 String linha;
-
                 while ((linha = br.readLine()) != null) {
-
                     String[] dados = linha.split(", ");
-
                     Obra obra = new Obra(dados[0], dados[1], dados[2], dados[3], Integer.parseInt(dados[4]));
-
                     listaObras.add(obra);
                 }
-            }
 
-            if (listaObras.isEmpty()) {
-                throw new Exception("\nNão há obras cadastrados");
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
             }
+        if (listaObras.isEmpty()) {
+            throw new Exception("\nNão há obras cadastrados");
+        }
 
-            return listaObras;
+        return listaObras;
     }
 
     public static Obra buscarObra(String titulo) throws Exception {
@@ -49,13 +47,12 @@ public abstract class GerenciadorObras {
         ArrayList<Obra> listaObras = listarObras();
 
         for (Obra tempObra : listaObras) {
-
-            if(tempObra.getTitulo() == titulo) {
-
+            if (tempObra.getTitulo() == titulo) {
                 return tempObra;
             }
         }
-        throw new Exception("\nObra com o título: " + titulo + " não localizado!");
+
+        throw new Exception("\nObra com o título: " + titulo + " não localizada");
     }
 
     public static void apagarObra(String titulo) throws Exception{

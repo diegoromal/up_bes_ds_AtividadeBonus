@@ -18,7 +18,7 @@ public class Sistema{
 
         switch (opcao) {
             case 1:
-                salvarObra();
+                adicionarObra();
                 break;
 
             case 2:
@@ -44,23 +44,23 @@ public class Sistema{
 
     }
 
-    private static void salvarObra() {
+    private static void adicionarObra() {
 
         System.out.println("\nAdicionar Obra:");
         
         System.out.print("Informe o título: ");
         String titulo = Console.lerString();
 
-        System.out.print("Informe o Artista: ");
+        System.out.print("Informe o artista: ");
         String artista = Console.lerString();
 
-        System.out.print("Informe o Tipo da obra: ");
+        System.out.print("Informe o tipo da obra: ");
         String tipoObra = Console.lerString();
 
-        System.out.println("Informe o local da obra");
+        System.out.print("Informe o local da obra: ");
         String local = Console.lerString();
 
-        System.out.println("Informe o ano da obra");
+        System.out.print("Informe o ano da obra: ");
         int ano = Console.lerInt();
 
         Obra obra = new Obra(titulo, artista, tipoObra, local, ano);

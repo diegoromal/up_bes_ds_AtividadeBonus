@@ -4,12 +4,12 @@ public class Sistema{
 
     private static void exibirMenu() {
 
-        System.out.println("\nGerenciador de Obras");
-        System.out.println("1) Cadastrar obras:");
-        System.out.println("2) Buscar obra:");
-        System.out.println("3) Listar todas as obras:");
-        System.out.println("4) Apagar as obras:");
-        System.out.println("0) Sair");
+        System.out.println("\nMuseu XPTO");
+        System.out.println("[1] - Cadastrar obras");
+        System.out.println("[2] - Buscar obra");
+        System.out.println("[3] - Listar todas as obras");
+        System.out.println("[4] - Apagar as obras");
+        System.out.println("[0] - Sair");
         System.out.print("Sua opção: ");
 
     }

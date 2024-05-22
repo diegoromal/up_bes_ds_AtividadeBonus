@@ -1,16 +1,16 @@
-public class Obra{
+public class Obra {
 
     private String titulo;
     private String artista;
-    private String TipoObra;
-    private String Local;
+    private String tipoObra;
+    private String local;
     private int ano;
     
     public Obra(String titulo, String artista, String tipoObra, String local, int ano) {
         this.titulo = titulo;
         this.artista = artista;
-        TipoObra = tipoObra;
-        Local = local;
+        this.tipoObra = tipoObra;
+        this.local = local;
         this.ano = ano;
     }
 
@@ -31,19 +31,19 @@ public class Obra{
     }
 
     public String getTipoObra() {
-        return TipoObra;
+        return tipoObra;
     }
 
     public void setTipoObra(String tipoObra) {
-        TipoObra = tipoObra;
+        this.tipoObra = tipoObra;
     }
 
     public String getLocal() {
-        return Local;
+        return local;
     }
 
     public void setLocal(String local) {
-        Local = local;
+        this.local = local;
     }
 
     public int getAno() {
@@ -56,12 +56,6 @@ public class Obra{
     
     @Override
     public String toString() {
-        return super.toString() + titulo + "," + artista + "," + TipoObra + "," + Local + "," + ano + ".";
-        
-    }
-
-    public static Obra fromString(String linha) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'fromString'");
+        return titulo + ", " + artista + ", " + tipoObra + ", " + local + ", " + ano + "\n";
     }
 }
